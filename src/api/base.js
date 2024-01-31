@@ -1,5 +1,6 @@
 import axios from "axios";
 
 export const baseApi = axios.create({
-  baseURL: import.meta.env.VITE_API,
+  // baseURL: import.meta.env.VITE_API,
+  baseURL: "https://json-api-psi-two.vercel.app",
 });
