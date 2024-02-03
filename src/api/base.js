@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const baseApi = axios.create({
-  // baseURL: import.meta.env.VITE_API,
-  baseURL: "https://json-api-psi-two.vercel.app",
+  baseURL: import.meta.env.VITE_API,
+  // baseURL: "https://json-api-psi-two.vercel.app",
   headers: { "Content-Type": "application/JSON" },
 });
