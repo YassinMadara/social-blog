@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Form } from "react-router-dom";
 
-export default function SearchForm({ query, queryInput, setQueryInput }) {
+export default function SearchForm({ query }) {
+  // const [inqry, setInqry] = useState("");
+
   const queryRef = useRef();
 
   useEffect(() => {
@@ -17,12 +19,12 @@ export default function SearchForm({ query, queryInput, setQueryInput }) {
             type="search"
             name="query"
             id="query"
-            // value={queryInput}
-            // defaultValue={query}
-            // onChange={(e) => {
-            //   setQueryInput(e.target.value);
-            // }}
+            defaultValue={queryRef}
             ref={queryRef}
+            // value={inqry}
+            // onChange={(e) => {
+            //   setInqry(e.target.value);
+            // }}
           ></input>
         </div>
         <button className="btn">Search</button>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function UnvalidURL() {
+export default function UnvalidURLPage() {
   return (
     <h1>
       This URL is unavailable - Go{" "}
