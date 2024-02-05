@@ -1,6 +1,8 @@
 import { Link, useLoaderData } from "react-router-dom";
+import { getPost } from "../api/posts";
+import { getUser } from "../api/users";
 
-export default function Post() {
+function Post() {
   const { post, user } = useLoaderData();
   return (
     <div className="container">
@@ -18,3 +20,18 @@ export default function Post() {
     </div>
   );
 }
+
+async function loader({ params, request: { signal } }) {
+  const post = await getPost(params.postId, { signal });
+  const user = getUser(post.userId, { signal });
+
+  return {
+    post,
+    user: await user,
+  };
+}
+
+export const PostRoute = {
+  loader,
+  element: <Post />,
+};

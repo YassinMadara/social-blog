@@ -1,6 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
+import { getUser } from "../api/users";
 
-export default function User() {
+function User() {
   const user = useLoaderData();
   return (
     <div className="container">
@@ -25,3 +26,12 @@ export default function User() {
     </div>
   );
 }
+
+function loader({ params, request: { signal } }) {
+  return getUser(params.userId, signal);
+}
+
+export const UserRoute = {
+  element: <User />,
+  loader,
+};

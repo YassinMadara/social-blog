@@ -1,6 +1,8 @@
 import { useLoaderData } from "react-router-dom";
+import { getTodos } from "../api/todos";
 import SearchForm from "../components/SearchForm";
 import TodoComponent from "../components/TodoComponent";
+import { getQuery } from "../router";
 
 export default function TodosList() {
   const { todos, query } = useLoaderData();
@@ -12,3 +14,17 @@ export default function TodosList() {
     </div>
   );
 }
+
+async function loader({ request: { signal, url } }) {
+  const query = getQuery(url, "query");
+  const filteredParams = { q: query };
+  return {
+    todos: await getTodos({ signal, params: filteredParams }),
+    query,
+  };
+}
+
+export const TodoListRoute = {
+  element: <TodosList />,
+  loader,
+};
