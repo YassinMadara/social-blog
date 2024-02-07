@@ -10,6 +10,8 @@ import { UserRoute } from "./pages/User";
 import UnvalidURLPage from "./pages/UnvalidURLPage";
 import ErrorPage from "./pages/ErrorPage";
 import "./styles.css";
+import { NewPostRoute } from "./pages/NewPost";
+import { EditPostRoute } from "./pages/EditPost";
 
 export function getQuery(url, paramName) {
   const searchParams = new URL(url).searchParams;
@@ -21,7 +23,6 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <ParentLayout />,
-    errorElement: <ErrorPage />,
     children: [
       {
         errorElement: <ErrorPage />,
@@ -42,10 +43,13 @@ export const router = createBrowserRouter([
                     index: true,
                     ...PostRoute,
                   },
-                  ,
+                  { path: "edit", ...EditPostRoute },
                 ],
               },
-              { path: "new", element: <h1>h1</h1> },
+              {
+                path: "new",
+                ...NewPostRoute,
+              },
             ],
           },
           {

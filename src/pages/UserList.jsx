@@ -10,6 +10,7 @@ function UserList() {
     <div className="container">
       <h1 className="page-title">Users - {users.length}</h1>
       {<SearchForm query={query} />}
+
       <br />
       <div className="card-grid">{<UserComponent users={users} />}</div>
     </div>

@@ -10,6 +10,27 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.right {
+  display: flex;
+  justify-content: end;
+  /* align-items: flex-end; */
+  /* border: 1px solid black; */
+}
+
+.btn.red {
+  background-color: red;
+}
+
+.btn.red:hover,
+.btn.red:focus {
+  background-color: rgba(210, 41, 41, 0.996);
+}
+
 .top-nav {
   color: hsl(200, 20%, 95%);
   background: hsl(200, 100%, 10%);
