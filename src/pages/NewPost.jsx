@@ -42,6 +42,7 @@ async function action({ request }) {
     { signal: request.signal }
   );
   return redirect(`/posts/${post.id}`);
+  // return redirect(`/`);
 }
 
 export const NewPostRoute = {

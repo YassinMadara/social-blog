@@ -55,6 +55,7 @@ async function action({ params: { postId }, request }) {
   );
 
   return redirect(`/posts/${post.id}`);
+  // return redirect(`/`);
 }
 
 export const EditPostRoute = {
