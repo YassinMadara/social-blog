@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { getUsers } from "../api/users";
 import SearchForm from "../components/SearchForm";
 import UserComponent from "../components/UserComponent";

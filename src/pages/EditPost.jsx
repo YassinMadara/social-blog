@@ -1,20 +1,31 @@
-import { redirect, useLoaderData, useNavigate } from "react-router-dom";
-import { deletePost, getPost, updatePost } from "../api/posts";
+import {
+  redirect,
+  useActionData,
+  useLoaderData,
+  useNavigation,
+} from "react-router-dom";
+import { getPost, updatePost } from "../api/posts";
 import { getUsers } from "../api/users";
-import PostForm from "../components/PostForm";
+import PostForm, { postFormValidator } from "../components/PostForm";
 
 function EditPost() {
   const { users, post, signal } = useLoaderData();
-
+  const errors = useActionData();
+  const { state } = useNavigation();
+  const isSubmitting = state === "submitting";
   return (
     <div className="container">
       <h1 className="page-title">Edit Post</h1>
-      {<PostForm users={users} post={post} signal={signal} editForm={true} />}
-      {/* <div className="center">
-        <button className="btn red">
-          Delete
-        </button>
-      </div> */}
+      {
+        <PostForm
+          users={users}
+          post={post}
+          signal={signal}
+          errors={errors}
+          isSubmitting={isSubmitting}
+          editForm={true}
+        />
+      }
     </div>
   );
 }
@@ -31,6 +42,11 @@ async function action({ params: { postId }, request }) {
   const title = formData.get("title");
   const userId = formData.get("userId");
   const body = formData.get("body");
+
+  const errors = postFormValidator({ title, userId, body });
+  if (Object.keys(errors).length > 0) {
+    return errors;
+  }
 
   const post = await updatePost(
     postId,

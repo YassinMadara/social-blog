@@ -1,9 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Form } from "react-router-dom";
 
 export default function SearchForm({ query, users, userId, userOptionSearch }) {
-  // const [inqry, setInqry] = useState("");
-
   const queryRef = useRef();
   const userIdRef = useRef();
 
@@ -11,10 +9,9 @@ export default function SearchForm({ query, users, userId, userOptionSearch }) {
     queryRef.current.value = query || "";
   }, [query]);
 
-  userOptionSearch &&
-    useEffect(() => {
-      userIdRef.current.value = userId || "";
-    }, [userId]);
+  useEffect(() => {
+    if (userOptionSearch) userIdRef.current.value = userId || "";
+  }, [userId]);
 
   return (
     <Form className="form">
@@ -27,10 +24,6 @@ export default function SearchForm({ query, users, userId, userOptionSearch }) {
             id="query"
             defaultValue={queryRef}
             ref={queryRef}
-            // value={inqry}
-            // onChange={(e) => {
-            //   setInqry(e.target.value);
-            // }}
           ></input>
         </div>
         {userOptionSearch && (

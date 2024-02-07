@@ -5,7 +5,7 @@ import PostComponent from "../components/PostComponent";
 import SearchForm from "../components/SearchForm";
 
 function PostList() {
-  const { posts, users, query, userId = "" } = useLoaderData();
+  const { posts, users, query, userId } = useLoaderData();
   return (
     <div className="container">
       <h1 className="page-title">
@@ -23,7 +23,9 @@ function PostList() {
         userOptionSearch={true}
       />
       <br />
-      <div className="card-grid">{<PostComponent posts={posts} />}</div>
+      <div className="card-grid">
+        {<PostComponent posts={posts} userId={userId} users={users} />}
+      </div>
     </div>
   );
 }
@@ -38,7 +40,6 @@ async function loader({ request: { signal, url } }) {
   const posts = getPosts({ signal, params: filterParams });
   const users = getUsers({ signal });
 
-  console.log(filterParams);
   return {
     posts: await posts,
     users: await users,
