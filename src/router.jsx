@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
     element: <ParentLayout />,
     children: [
       {
-        errorElement: <ErrorPage />,
+        errorElement: <Navigate to="posts" />,
         children: [
           { index: true, element: <Navigate to="posts" /> },
           { path: "*", element: <UnvalidURLPage /> },
