@@ -1,4 +1,5 @@
 import {
+  Navigate,
   redirect,
   useActionData,
   useLoaderData,
@@ -43,6 +44,7 @@ async function action({ request }) {
   );
   return redirect(`/posts/${post.id}`);
   // return redirect(`/`);
+  // return <Navigate to={`/posts/${post.id}`} replace={true} />;
 }
 
 export const NewPostRoute = {
