@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function PostComponent({ posts }) {
+export default function PostCard({ posts }) {
   return posts.map((p) => (
     <div key={p.id} className="card">
       <div className="card-header">{p.title}</div>

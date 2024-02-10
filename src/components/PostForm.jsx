@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Form, Link, useNavigate } from "react-router-dom";
 import { deletePost } from "../api/posts";
 
@@ -8,8 +9,12 @@ export default function PostForm({
   editForm,
   isSubmitting,
 }) {
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
   const navigate = useNavigate();
+
   async function deleting() {
+    setIsDeleting(true);
     await deletePost(post.id);
     return navigate("/");
   }
@@ -49,12 +54,20 @@ export default function PostForm({
         <Link className="btn btn-outline" to="..">
           Cancel
         </Link>
-        <button disabled={isSubmitting} className="btn">
-          {isSubmitting ? "Saving" : "Save"}
+        <button
+          onClick={() => setIsSaving(true)}
+          disabled={isSubmitting}
+          className="btn"
+        >
+          {Object.keys(errors).length === 0 && isSaving ? "Saving..." : "Save"}
         </button>
         {editForm && (
-          <button onClick={deleting} className="btn red">
-            Delete
+          <button
+            disabled={isSubmitting}
+            onClick={deleting}
+            className="btn red"
+          >
+            {isDeleting ? "Deleting..." : "Delete"}
           </button>
         )}
       </div>

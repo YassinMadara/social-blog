@@ -1,7 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { getPosts } from "../api/posts";
 import { getUsers } from "../api/users";
-import PostComponent from "../components/PostComponent";
+import PostCard from "../components/PostCard";
 import SearchForm from "../components/SearchForm";
 
 function PostList() {
@@ -24,7 +24,7 @@ function PostList() {
       />
       <br />
       <div className="card-grid">
-        {<PostComponent posts={posts} userId={userId} users={users} />}
+        {<PostCard posts={posts} userId={userId} users={users} />}
       </div>
     </div>
   );

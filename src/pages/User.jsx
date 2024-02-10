@@ -2,7 +2,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import { getUser } from "../api/users";
 import { getTodos } from "../api/todos";
 import TodoComponent from "../components/TodoComponent";
-import PostComponent from "../components/PostComponent";
+import PostCard from "../components/PostCard";
 import { getPosts } from "../api/posts";
 
 function User() {
@@ -29,7 +29,7 @@ function User() {
         </Link>
       </div>
       <br />
-      <div className="card-grid">{<PostComponent posts={posts} />}</div>
+      <div className="card-grid">{<PostCard posts={posts} />}</div>
       {<TodoComponent todos={todos} />}
     </div>
   );
