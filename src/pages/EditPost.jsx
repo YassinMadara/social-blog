@@ -1,4 +1,5 @@
 import {
+  Navigate,
   redirect,
   useActionData,
   useLoaderData,
@@ -55,6 +56,7 @@ async function action({ params: { postId }, request }) {
   );
 
   return redirect(`/posts/${post.id}`);
+  // return <Navigate to="/posts" />;
   // return redirect(`/`);
 }
 

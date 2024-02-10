@@ -43,8 +43,8 @@ async function action({ request }) {
     { signal: request.signal }
   );
   return redirect(`/posts/${post.id}`);
+  // return <Navigate to="/posts" />;
   // return redirect(`/`);
-  // return <Navigate to={`/posts/${post.id}`} replace={true} />;
 }
 
 export const NewPostRoute = {

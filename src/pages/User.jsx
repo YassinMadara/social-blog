@@ -7,9 +7,7 @@ import { getPosts } from "../api/posts";
 
 function User() {
   const { user, todos, posts } = useLoaderData();
-  console.log("user: ", user);
-  console.log("todos: ", todos);
-  console.log("posts: ", posts);
+
   return (
     <div className="container">
       <h1 className="page-title">{user.name}</h1>
