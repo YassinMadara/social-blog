@@ -13,13 +13,13 @@ export default function ErrorPage() {
           Home
         </Link>
       </h2>
-      {/* {import.meta.env.MODE === "development" ? ( */}
-      <>
-        <pre>{error.message}</pre>
-        <pre>{error.response.data}</pre>
-        <pre>{error.stack}</pre>
-      </>
-      {/* ) : undefined} */}
+      {import.meta.env.MODE === "development" ? (
+        <>
+          <pre>{error.message}</pre>
+          <pre>{error.response.data}</pre>
+          <pre>{error.stack}</pre>
+        </>
+      ) : undefined}
     </>
   );
 }

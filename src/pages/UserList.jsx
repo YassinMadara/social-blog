@@ -8,7 +8,7 @@ function UserList() {
   const { users, query } = useLoaderData();
   return (
     <div className="container">
-      <h1 className="page-title">Users - {users.length}</h1>
+      <h1 className="page-title">Users</h1>
       {<SearchForm query={query} />}
 
       <br />

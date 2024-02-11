@@ -8,7 +8,7 @@ export default function TodosList() {
   const { todos, query } = useLoaderData();
   return (
     <div className="container">
-      <h1 className="page-title">Todos - {todos.length}</h1>
+      <h1 className="page-title">Todos</h1>
       <SearchForm query={query} />
       <ul>{<TodoComponent todos={todos} />}</ul>
     </div>
