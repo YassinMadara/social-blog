@@ -10,16 +10,17 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .right {
   display: flex;
   justify-content: end;
   /* align-items: flex-end; */
   /* border: 1px solid black; */
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn.red {
